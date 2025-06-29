@@ -59,8 +59,7 @@
 	<sys:String x:Key="MyAccountButton">My Account</sys:String>
 	<sys:String x:Key="SelectTransactionDescription">Select a transaction to see the description.</sys:String>
 	<sys:String x:Key="AddTransactionButton">Add Transaction</sys:String>
-	<sys:String x:Key="ChartsButton">Charts</sys:String>
-	<sys:String x:Key="LogoutButton">Logout</sys:String>
+    <sys:String x:Key="ChartsButton">Charts</sys:String>
 
 
 
@@ -95,6 +94,8 @@
     <sys:String x:Key="ChartsTitleLabel">Charts</sys:String>
     <sys:String x:Key="ViewCharts">View charts</sys:String>
     <sys:String x:Key="SaveButton">Save</sys:String>
+    <sys:String x:Key="LogoutButton">Logout</sys:String>
+    <sys:String x:Key="SelectLanguage">Select Language: </sys:String>
 
 
 

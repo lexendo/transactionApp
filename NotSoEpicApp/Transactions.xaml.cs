@@ -19,11 +19,6 @@ namespace NotSoEpicApp
             TransactionsListBox.ItemsSource = Login.transactions;
         }
 
-        private void Logout_Buttton_Click(object sender, System.Windows.RoutedEventArgs e)
-        {
-            //logout
-            NavigationService.Navigate(new Login());
-        }
         private void Charts_Button_Click(object sender, System.Windows.RoutedEventArgs e)
         {
             NavigationService.Navigate(new Charts());

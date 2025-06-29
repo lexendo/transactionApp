@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Input;
 using System.Windows.Navigation;
 
 namespace NotSoEpicApp
@@ -14,6 +15,12 @@ namespace NotSoEpicApp
     /// </summary>
     public partial class ManageAccount : Page
     {
+        private void Logout_Buttton_Click(object sender, System.Windows.RoutedEventArgs e)
+        {
+            //logout
+            NavigationService.Navigate(new Login());
+        }
+
         public ManageAccount()
         {
             InitializeComponent();
@@ -165,6 +172,24 @@ namespace NotSoEpicApp
         private void TransactionsButton_Click(object sender, RoutedEventArgs e)
         {
             NavigationService.Navigate(new Transactions());
+        }
+
+        private void UsaFlag_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            ChangeLanguage("en-US");
+        }
+
+        private void SlovakiaFlag_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            ChangeLanguage("sk");
+        }
+
+        private void ChangeLanguage(string cultureCode)
+        {
+            LanguageManager.LoadResourceDictionary(cultureCode);
+
+            Properties.Settings.Default.PreferredLanguage = cultureCode;
+            Properties.Settings.Default.Save();
         }
     }
 }

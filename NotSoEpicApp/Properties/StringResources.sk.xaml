@@ -59,10 +59,9 @@
 	<sys:String x:Key="MyAccountButton">Môj účet</sys:String>
 	<sys:String x:Key="SelectTransactionDescription">Vyberte transakciu pre zobrazenie popisu.</sys:String>
 	<sys:String x:Key="AddTransactionButton">Pridať transakciu</sys:String>
-	<sys:String x:Key="ChartsButton">Grafy</sys:String>
-	<sys:String x:Key="LogoutButton">Odhlásiť</sys:String>
+    <sys:String x:Key="ChartsButton">Grafy</sys:String>
 
-	<!-- MessageBoxes -->
+    <!-- MessageBoxes -->
 	<sys:String x:Key="UsernameValidation">Používateľské meno musí mať aspoň 5 znakov.</sys:String>
 	<sys:String x:Key="EmailValidation">Zadajte platnú e-mailovú adresu.</sys:String>
 	<sys:String x:Key="PasswordValidation">Heslo musí mať aspoň 8 znakov.</sys:String>
@@ -92,6 +91,8 @@
     <sys:String x:Key="ChartsTitleLabel">Grafy</sys:String>
     <sys:String x:Key="ViewCharts">Zobraziť grafy</sys:String>
     <sys:String x:Key="SaveButton">Uložiť</sys:String>
+    <sys:String x:Key="LogoutButton">Odhlásiť</sys:String>
+    <sys:String x:Key="SelectLanguage">Vyber si jazyk:</sys:String>
 
 
 </ResourceDictionary>

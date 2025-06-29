@@ -80,7 +80,6 @@
                 <TextBlock x:Name="DescriptionTextBlock" Text="{DynamicResource SelectTransactionDescription}" TextWrapping="Wrap" FontSize="16" Height="190" Width="204"/>
                 <Button Content="{DynamicResource AddTransactionButton}" Click="AddTransaction_Button_Click" Width="160" Height="45"/>
                 <Button Content="{DynamicResource ChartsButton}" Click="Charts_Button_Click" Width="126" Height="45"/>
-                <Button Content="{DynamicResource LogoutButton}" Click="Logout_Buttton_Click" Width="126" Height="45"/>
             </StackPanel>
         </Grid>
     </Grid>
