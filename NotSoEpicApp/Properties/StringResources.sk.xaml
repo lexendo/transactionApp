@@ -1,0 +1,84 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:sys="clr-namespace:System;assembly=mscorlib">
+
+	<!-- Textové reťazce pre lokalizáciu -->
+	<sys:String x:Key="Create_Account_button">Vytvoriť účet</sys:String>
+	<sys:String x:Key="Create_Account_label">Nemáte účet? Registrujte sa:</sys:String>
+	<sys:String x:Key="Login">Prihlásiť</sys:String>
+	<sys:String x:Key="Password">Heslo:</sys:String>
+	<sys:String x:Key="Username">Používateľ:</sys:String>
+
+	<!-- Charts Page -->
+	<sys:String x:Key="SelectTimePeriod">Vyberte obdobie:</sys:String>
+	<sys:String x:Key="LastMonth">Posledný mesiac</sys:String>
+	<sys:String x:Key="LastQuarter">Posledný štvrťrok</sys:String>
+	<sys:String x:Key="LastYear">Posledný rok</sys:String>
+	<sys:String x:Key="Lifetime">Celkový čas</sys:String>
+	<sys:String x:Key="IncomeVsExpenses">Príjmy vs Výdavky</sys:String>
+	<sys:String x:Key="IncomesByCategory">Príjmy podľa kategórie</sys:String>
+	<sys:String x:Key="ExpensesByCategory">Výdavky podľa kategórie</sys:String>
+	<sys:String x:Key="BalanceOverTime">Zostatok v čase</sys:String>
+	<sys:String x:Key="IncomesVsExpensesOverTime">Príjmy vs Výdavky v čase</sys:String>
+	<sys:String x:Key="TransactionsButton">Transakcie</sys:String>
+
+	<!-- Create Account Page -->
+	<sys:String x:Key="CreateNewAccount">Vytvoriť nový účet</sys:String>
+	<sys:String x:Key="Email">Email:</sys:String>
+	<sys:String x:Key="ConfirmPassword">Potvrďte heslo:</sys:String>
+	<sys:String x:Key="CreateButton">Vytvoriť</sys:String>
+	<sys:String x:Key="AlreadyHaveAccount">Máte už účet? Prihláste sa:</sys:String>
+	<sys:String x:Key="LoginButton">Prihlásiť</sys:String>
+
+	<!-- New Transaction Page -->
+	<sys:String x:Key="AddNewTransaction">Pridať novú transakciu</sys:String>
+	<sys:String x:Key="Title">Názov:</sys:String>
+	<sys:String x:Key="Amount">Suma:</sys:String>
+	<sys:String x:Key="Type">Typ:</sys:String>
+	<sys:String x:Key="Entertainment">Zábava</sys:String>
+	<sys:String x:Key="Healthcare">Zdravie</sys:String>
+	<sys:String x:Key="Insurance">Poistenie</sys:String>
+	<sys:String x:Key="Groceries">Potraviny</sys:String>
+	<sys:String x:Key="Gift">Dar</sys:String>
+	<sys:String x:Key="Tax">Daň</sys:String>
+	<sys:String x:Key="Rent">Nájom</sys:String>
+	<sys:String x:Key="Shopping">Nákupy</sys:String>
+	<sys:String x:Key="Other">Iné</sys:String>
+	<sys:String x:Key="Income">Príjem</sys:String>
+	<sys:String x:Key="Expense">Výdavok</sys:String>
+	<sys:String x:Key="Description">Popis:</sys:String>
+	<sys:String x:Key="Date">Dátum:</sys:String>
+	<sys:String x:Key="SubmitButton">Odoslať</sys:String>
+
+	<!-- Transactions Page -->
+	<sys:String x:Key="TransactionsTitle">Názov</sys:String>
+	<sys:String x:Key="TransactionsType">Typ</sys:String>
+	<sys:String x:Key="TransactionsAmount">Suma</sys:String>
+	<sys:String x:Key="TransactionsDate">Dátum</sys:String>
+	<sys:String x:Key="MyAccountButton">Môj účet</sys:String>
+	<sys:String x:Key="SelectTransactionDescription">Vyberte transakciu pre zobrazenie popisu.</sys:String>
+	<sys:String x:Key="AddTransactionButton">Pridať transakciu</sys:String>
+	<sys:String x:Key="ChartsButton">Grafy</sys:String>
+	<sys:String x:Key="LogoutButton">Odhlásiť</sys:String>
+
+	<!-- MessageBoxes -->
+	<sys:String x:Key="UsernameValidation">Používateľské meno musí mať aspoň 5 znakov.</sys:String>
+	<sys:String x:Key="EmailValidation">Zadajte platnú e-mailovú adresu.</sys:String>
+	<sys:String x:Key="PasswordValidation">Heslo musí mať aspoň 8 znakov.</sys:String>
+	<sys:String x:Key="PasswordConfirmationValidation">Heslá sa nezhodujú.</sys:String>
+	<sys:String x:Key="AccountCreatedSuccess">Účet bol úspešne vytvorený!</sys:String>
+	<sys:String x:Key="AccountCreatedFail">Nepodarilo sa vytvoriť účet. Skúste to znova.</sys:String>
+	
+	<sys:String x:Key="InvalidUsernamePassword">Neplatné používateľské meno alebo heslo.</sys:String>
+	
+	<sys:String x:Key="TitleValidation">Prosím, zadajte platný názov.</sys:String>
+	<sys:String x:Key="AmountValidation">Prosím, zadajte platnú sumu.</sys:String>
+	<sys:String x:Key="DateValidation">Prosím, vyberte platný dátum.</sys:String>
+	<sys:String x:Key="TransactionTypeValidation">Prosím, vyberte platný typ transakcie.</sys:String>
+	<sys:String x:Key="TransactionSaveSuccess">Transakcia bola úspešne uložená!</sys:String>
+	<sys:String x:Key="TransactionSaveFail">Transakciu sa nepodarilo uložiť do databázy!</sys:String>
+
+
+
+</ResourceDictionary>

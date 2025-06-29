@@ -1,0 +1,68 @@
+﻿<Page x:Class="NotSoEpicApp.NewTransactionPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      Title="{DynamicResource AddNewTransaction}">
+
+    <Page.Background>
+        <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+            <GradientStop Color="#B3E5FC" Offset="0.0"/>
+            <GradientStop Color="#CFD8DC" Offset="1.0"/>
+        </LinearGradientBrush>
+    </Page.Background>
+
+    <Grid Margin="0,0,10,-6">
+        <Grid Margin="160,59,128,85">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <TextBlock Text="{DynamicResource AddNewTransaction}" FontWeight="Bold" FontSize="16" Grid.ColumnSpan="2" Margin="0,0,0,20"/>
+
+            <TextBlock Text="{DynamicResource Title}" Grid.Row="1" Grid.Column="0" VerticalAlignment="Center" Margin="0,0,10,10"/>
+            <TextBox x:Name="TitleTextBox" Grid.Column="1" Margin="0,9,234,10" Grid.Row="1"/>
+
+            <TextBlock Text="{DynamicResource Amount}" Grid.Row="1" Grid.Column="1" VerticalAlignment="Center" Margin="202,0,138,0" RenderTransformOrigin="-0.013,0.737"/>
+            <TextBox x:Name="AmountTextBox" Grid.Row="1" Grid.Column="1" Margin="267,12,23,10" RenderTransformOrigin="0.305,0.71"/>
+
+            <TextBlock Text="{DynamicResource Type}" Grid.Row="2" Grid.Column="0" VerticalAlignment="Center" Margin="0,0,10,10"/>
+            <StackPanel Grid.Row="2" Grid.Column="1" Orientation="Horizontal" Margin="0,9,0,10">
+                <ComboBox x:Name="TransactionTypeComboBox" Width="150">
+                    <ComboBoxItem Content="{DynamicResource Entertainment}"/>
+                    <ComboBoxItem Content="{DynamicResource Healthcare}"/>
+                    <ComboBoxItem Content="{DynamicResource Insurance}"/>
+                    <ComboBoxItem Content="{DynamicResource Groceries}"/>
+                    <ComboBoxItem Content="{DynamicResource Gift}"/>
+                    <ComboBoxItem Content="{DynamicResource Tax}"/>
+                    <ComboBoxItem Content="{DynamicResource Rent}"/>
+                    <ComboBoxItem Content="{DynamicResource Shopping}"/>
+                    <ComboBoxItem Content="{DynamicResource Other}" IsSelected="true"/>
+                </ComboBox>
+
+                <StackPanel Orientation="Horizontal" Margin="20,0,0,0">
+                    <RadioButton x:Name="IncomeRadioButton" Content="{DynamicResource Income}" GroupName="TransactionType" Margin="0,0,10,0" IsChecked="true"/>
+                    <RadioButton x:Name="ExpenseRadioButton" Content="{DynamicResource Expense}" GroupName="TransactionType" />
+                </StackPanel>
+            </StackPanel>
+
+            <TextBlock Text="{DynamicResource Description}" Grid.Row="3" Grid.Column="0" VerticalAlignment="Center" Margin="0,0,10,10"/>
+            <TextBox x:Name="DescriptionTextBox" Grid.Row="3" Grid.Column="1" Margin="0,0,0,10" Height="60"/>
+
+            <TextBlock Text="{DynamicResource Date}" Grid.Row="4" Grid.Column="0" VerticalAlignment="Center" Margin="0,0,10,10"/>
+            <DatePicker x:Name="DatePicker" Grid.Row="4" Grid.Column="1" Margin="0,0,0,10"/>
+
+            <Button x:Name="Submit_Button" Content="{DynamicResource SubmitButton}" Grid.Row="4" Grid.Column="1" Width="100" HorizontalAlignment="Right" Margin="0,24,0,0" Click="Submit_Button_Click" Grid.RowSpan="2" VerticalAlignment="Top"/>
+        </Grid>
+
+        <Button x:Name="TransactionsButton" Content="{DynamicResource TransactionsButton}" Width="134" Height="38" Click="TransactionsButton_Click" Margin="0,315,0,0" VerticalAlignment="Top"/>
+
+    </Grid>
+</Page>

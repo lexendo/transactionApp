@@ -1,0 +1,87 @@
+﻿<Page x:Class="NotSoEpicApp.ManageAccount"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:NotSoEpicApp"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="ManageAccount">
+
+    <Page.Background>
+        <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+            <GradientStop Color="#B3E5FC" Offset="0.0"/>
+            <GradientStop Color="#CFD8DC" Offset="1.0"/>
+        </LinearGradientBrush>
+    </Page.Background>
+
+    <Grid>
+        <!-- Definovanie riadkov a stĺpcov -->
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="Auto" />
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <!-- Button Transactions -->
+        <Button x:Name="TransactionsButton" Content="{DynamicResource TransactionsButton}" 
+        Width="134" Height="38" Click="TransactionsButton_Click" HorizontalAlignment="Right" Margin="10" VerticalAlignment="Top"/>
+
+        <StackPanel Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Top" Width="400" Margin="0,50,0,0">
+            <!-- TextBlock for Title -->
+            <TextBlock Text="Supervisors administration" FontSize="18" FontWeight="Bold" HorizontalAlignment="Center" Margin="0,0,0,20" />
+
+            <!-- Grid pre zarovnanie prvkov -->
+            <Grid Height="243">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+
+                <!-- Label and ComboBox for selecting a user -->
+                <Label Grid.Row="0" Grid.Column="0" Content="Choose user:" VerticalAlignment="Center" Margin="5"/>
+                <ComboBox Grid.Row="0" Grid.Column="1" x:Name="UserDropdown" Width="200" SelectionChanged="UserDropdown_SelectionChanged"/>
+
+                <!-- CheckBox for Set as Supervisor -->
+                <CheckBox Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" x:Name="SetAsSupervisorCheckBox" Content="Set as supervisor" HorizontalAlignment="Left" Margin="10,10,0,10"/>
+
+                <!-- Checkboxes for Permissions -->
+                <StackPanel Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Orientation="Vertical" HorizontalAlignment="Left" Margin="0,36,0,19" Grid.RowSpan="2">
+                    <TextBlock Text="Transactions" FontWeight="Bold" Margin="10,5,0,2"/>
+                    <StackPanel Orientation="Horizontal" Margin="20,0,0,5">
+                        <CheckBox x:Name="AllowViewTransactionsCheckBox" Content="View transactions" Margin="0,0,10,0" />
+                        <CheckBox x:Name="AllowAddTransactionsCheckBox" Content="Add transactions" />
+                    </StackPanel>
+
+                    <TextBlock Text="Supervisors" FontWeight="Bold" Margin="10,10,0,2"/>
+                    <StackPanel Orientation="Horizontal" Margin="20,0,0,5">
+                        <CheckBox x:Name="AllowViewSupervisorsCheckBox" Content="View supervisors" Margin="0,0,10,0" />
+                        <CheckBox x:Name="AllowAddSupervisorsCheckBox" Content="Edit supervisors" />
+                    </StackPanel>
+
+                    <TextBlock Text="Charts" FontWeight="Bold" Margin="10,10,0,2"/>
+                    <StackPanel Orientation="Horizontal" Margin="20,0,0,0">
+                        <CheckBox x:Name="AllowViewChartsCheckBox" Content="View charts" />
+                    </StackPanel>
+                </StackPanel>
+
+
+
+                <!-- Save Button -->
+                <Button Grid.Row="2" Grid.Column="1" Content="Save" Width="100" HorizontalAlignment="Left" Click="SaveButton_Click" Margin="62,76,0,0" Grid.RowSpan="2" VerticalAlignment="Top" />
+            </Grid>
+        </StackPanel>
+    </Grid>
+</Page>

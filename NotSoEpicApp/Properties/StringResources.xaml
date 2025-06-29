@@ -1,0 +1,86 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:sys="clr-namespace:System;assembly=mscorlib">
+
+	<!-- Textové reťazce pre lokalizáciu -->
+	<sys:String x:Key="Create_Account_button">Create account</sys:String>
+	<sys:String x:Key="Create_Account_label">No Account yet? Register here:</sys:String>
+	<sys:String x:Key="Login">Login</sys:String>
+	<sys:String x:Key="Password">Password:</sys:String>
+	<sys:String x:Key="Username">Username:</sys:String>
+
+	<!-- Charts Page -->
+	<sys:String x:Key="SelectTimePeriod">Select time period:</sys:String>
+	<sys:String x:Key="LastMonth">Last Month</sys:String>
+	<sys:String x:Key="LastQuarter">Last Quarter</sys:String>
+	<sys:String x:Key="LastYear">Last Year</sys:String>
+	<sys:String x:Key="Lifetime">Lifetime</sys:String>
+	<sys:String x:Key="IncomeVsExpenses">Income vs Expenses</sys:String>
+	<sys:String x:Key="IncomesByCategory">Incomes by Category</sys:String>
+	<sys:String x:Key="ExpensesByCategory">Expenses by Category</sys:String>
+	<sys:String x:Key="BalanceOverTime">Balance Over Time</sys:String>
+	<sys:String x:Key="IncomesVsExpensesOverTime">Incomes vs Expenses Over Time</sys:String>
+	<sys:String x:Key="TransactionsButton">Transactions</sys:String>
+
+	<!-- Create Account Page -->
+	<sys:String x:Key="CreateNewAccount">Create a new account</sys:String>
+	<sys:String x:Key="Email">Email:</sys:String>
+	<sys:String x:Key="ConfirmPassword">Confirm Password:</sys:String>
+	<sys:String x:Key="CreateButton">Create</sys:String>
+	<sys:String x:Key="AlreadyHaveAccount">Already have an account? Log in here:</sys:String>
+	<sys:String x:Key="LoginButton">Log in</sys:String>
+
+	<!-- New Transaction Page -->
+	<sys:String x:Key="AddNewTransaction">Add new transaction below</sys:String>
+	<sys:String x:Key="Title">Title:</sys:String>
+	<sys:String x:Key="Amount">Amount:</sys:String>
+	<sys:String x:Key="Type">Type:</sys:String>
+	<sys:String x:Key="Entertainment">Entertainment</sys:String>
+	<sys:String x:Key="Healthcare">Healthcare</sys:String>
+	<sys:String x:Key="Insurance">Insurance</sys:String>
+	<sys:String x:Key="Groceries">Groceries</sys:String>
+	<sys:String x:Key="Gift">Gift</sys:String>
+	<sys:String x:Key="Tax">Tax</sys:String>
+	<sys:String x:Key="Rent">Rent</sys:String>
+	<sys:String x:Key="Shopping">Shopping</sys:String>
+	<sys:String x:Key="Other">Other</sys:String>
+	<sys:String x:Key="Income">Income</sys:String>
+	<sys:String x:Key="Expense">Expense</sys:String>
+	<sys:String x:Key="Description">Description:</sys:String>
+	<sys:String x:Key="Date">Date:</sys:String>
+	<sys:String x:Key="SubmitButton">Submit</sys:String>
+
+	<!-- Transactions Page -->
+	<sys:String x:Key="TransactionsTitle">Title</sys:String>
+	<sys:String x:Key="TransactionsType">Type</sys:String>
+	<sys:String x:Key="TransactionsAmount">Amount</sys:String>
+	<sys:String x:Key="TransactionsDate">Date</sys:String>
+	<sys:String x:Key="MyAccountButton">My Account</sys:String>
+	<sys:String x:Key="SelectTransactionDescription">Select a transaction to see the description.</sys:String>
+	<sys:String x:Key="AddTransactionButton">Add Transaction</sys:String>
+	<sys:String x:Key="ChartsButton">Charts</sys:String>
+	<sys:String x:Key="LogoutButton">Logout</sys:String>
+
+
+
+    <!-- MessageBoxes -->
+    <sys:String x:Key="UsernameValidation">Username must be at least 5 characters long.</sys:String>
+    <sys:String x:Key="EmailValidation">Please enter a valid email address.</sys:String>
+    <sys:String x:Key="PasswordValidation">Password must be at least 8 characters long.</sys:String>
+    <sys:String x:Key="PasswordConfirmationValidation">Passwords do not match.</sys:String>
+    <sys:String x:Key="AccountCreatedSuccess">Account created successfully!</sys:String>
+    <sys:String x:Key="AccountCreatedFail">Failed to create account. Please try again.</sys:String>
+
+    <sys:String x:Key="InvalidUsernamePassword">Invalid username or password.</sys:String>
+    
+    <sys:String x:Key="TitleValidation">Please enter a valid title.</sys:String>
+    <sys:String x:Key="AmountValidation">Please enter a valid amount.</sys:String>
+    <sys:String x:Key="DateValidation">Please select a valid date.</sys:String>
+    <sys:String x:Key="TransactionTypeValidation">Please select a valid transaction type.</sys:String>
+    <sys:String x:Key="TransactionSaveSuccess">Transaction saved successfully!</sys:String>
+    <sys:String x:Key="TransactionSaveFail">Transaction not saved into database!</sys:String>
+
+
+
+</ResourceDictionary>

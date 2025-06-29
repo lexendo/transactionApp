@@ -1,0 +1,66 @@
+# Build directories - these contain compiled code
+bin/
+obj/
+
+# Visual Studio user-specific files
+.vs/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# NuGet packages directory
+packages/
+
+# User-specific configuration files (contain sensitive data like connection strings)
+appsettings.json
+
+# VS Code / Rider
+.vscode/
+.idea/
+
+# Logs
+*.log
+logs/
+
+# Database files (if using local SQLite/LocalDB)
+*.db
+*.sqlite
+*.mdf
+*.ldf
+
+# Temporary files
+*~
+*.tmp
+*.bak
+*.old
+*.swp
+
+# Auto-generated files
+Generated_Code/
+*.Designer.cs
+
+# Resharper
+_ReSharper*/
+*.DotSettings.user
+
+# Test results
+TestResults/
+*.trx
+*.coverage
+
+# Package files
+*.nupkg
+*.snupkg
+
+# Backup files
+*.orig
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
