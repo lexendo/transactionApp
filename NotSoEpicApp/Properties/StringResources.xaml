@@ -81,7 +81,7 @@
     <sys:String x:Key="TransactionSaveFail">Transaction not saved into database!</sys:String>
 
 
-    <!-- Supervisor Page -->
+    <!-- Manage Account Page -->
     <sys:String x:Key="SupervisorsAdminTitle">Supervisors administration</sys:String>
     <sys:String x:Key="ChooseUser">Choose user:</sys:String>
     <sys:String x:Key="SetAsSupervisor">Set as supervisor</sys:String>
@@ -96,6 +96,18 @@
     <sys:String x:Key="SaveButton">Save</sys:String>
     <sys:String x:Key="LogoutButton">Logout</sys:String>
     <sys:String x:Key="SelectLanguage">Select Language: </sys:String>
+    <sys:String x:Key="SupervisedUsersButton">📋 Supervised Users</sys:String>
+
+    <!-- Supervising Page -->
+    <sys:String x:Key="UsernameColumn">User</sys:String>
+    <sys:String x:Key="ViewTransactionsColumn">View Transactions</sys:String>
+    <sys:String x:Key="ViewChartsColumn">View Charts</sys:String>
+    <sys:String x:Key="ViewSupervisorsColumn">View Supervisors</sys:String>
+    <sys:String x:Key="AddTransactionsColumn">Add Transactions</sys:String>
+    <sys:String x:Key="AddSupervisorsColumn">Add Supervisors</sys:String>
+    <sys:String x:Key="ManageButton">Manage</sys:String>
+    <sys:String x:Key="Action">Action</sys:String>
+    <sys:String x:Key="Search">Search:</sys:String>
 
 
 

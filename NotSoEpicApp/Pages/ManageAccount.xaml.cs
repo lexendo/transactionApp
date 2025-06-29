@@ -191,5 +191,11 @@ namespace NotSoEpicApp
             Properties.Settings.Default.PreferredLanguage = cultureCode;
             Properties.Settings.Default.Save();
         }
+
+        private void SupervisedUsers_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new SupervisedUsers());
+        }
+
     }
 }

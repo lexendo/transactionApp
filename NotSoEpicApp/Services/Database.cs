@@ -425,6 +425,54 @@ WHERE user_id = @currentUserId AND supervisor_id = (SELECT id FROM public.users 
             }
         }
 
+        public static async Task<List<SupervisedUser>> GetSupervisedUsersWithPermissions()
+        {
+            List<SupervisedUser> users = new List<SupervisedUser>();
+
+            using (var connection = new NpgsqlConnection(connectionString))
+            {
+                try
+                {
+                    await connection.OpenAsync();
+
+                    string query = @"
+SELECT u.username, s.charts_access, s.transaction_access, s.supervisors_access, s.transactions_add, s.supervisors_add
+FROM public.supervisors s
+JOIN public.users u ON s.user_id = u.id
+WHERE s.supervisor_id = @currentUserId
+ORDER BY u.username";
+
+                    using (var command = new NpgsqlCommand(query, connection))
+                    {
+                        command.Parameters.AddWithValue("currentUserId", Login.CurrentUserId);
+
+                        using (var reader = await command.ExecuteReaderAsync())
+                        {
+                            while (await reader.ReadAsync())
+                            {
+                                users.Add(new SupervisedUser
+                                {
+                                    Username = reader.GetString(0),
+                                    AllowViewCharts = reader.GetBoolean(1),
+                                    AllowViewTransactions = reader.GetBoolean(2),
+                                    AllowViewSupervisors = reader.GetBoolean(3),
+                                    AllowAddTransactions = reader.GetBoolean(4),
+                                    AllowAddSupervisors = reader.GetBoolean(5)
+                                });
+                            }
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine($"Error retrieving supervised users: {ex.Message}");
+                }
+            }
+
+            return users;
+        }
+
+
 
     }
 }

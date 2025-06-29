@@ -78,7 +78,7 @@
 	<sys:String x:Key="TransactionSaveSuccess">Transakcia bola úspešne uložená!</sys:String>
 	<sys:String x:Key="TransactionSaveFail">Transakciu sa nepodarilo uložiť do databázy!</sys:String>
 
-    <!-- Supervisor Page -->
+    <!-- Manage Account Page -->
     <sys:String x:Key="SupervisorsAdminTitle">Správa supervízorov</sys:String>
     <sys:String x:Key="ChooseUser">Vyberte používateľa:</sys:String>
     <sys:String x:Key="SetAsSupervisor">Nastaviť ako supervízora</sys:String>
@@ -93,6 +93,17 @@
     <sys:String x:Key="SaveButton">Uložiť</sys:String>
     <sys:String x:Key="LogoutButton">Odhlásiť</sys:String>
     <sys:String x:Key="SelectLanguage">Vyber si jazyk:</sys:String>
+    <sys:String x:Key="SupervisedUsersButton">📋 Spravovaní Uživatelia</sys:String>
 
+    <!-- Supervising Page -->
+    <sys:String x:Key="UsernameColumn">Používateľ</sys:String>
+    <sys:String x:Key="ViewTransactionsColumn">Zobraziť transakcie</sys:String>
+    <sys:String x:Key="ViewChartsColumn">Zobraziť grafy</sys:String>
+    <sys:String x:Key="ViewSupervisorsColumn">Zobraziť dohľady</sys:String>
+    <sys:String x:Key="AddTransactionsColumn">Pridať transakcie</sys:String>
+    <sys:String x:Key="AddSupervisorsColumn">Pridať dohľady</sys:String>
+    <sys:String x:Key="ManageButton">Spravovať</sys:String>
+    <sys:String x:Key="Action">Akcia</sys:String>
+    <sys:String x:Key="Search">Vyhľadávanie:</sys:String>
 
 </ResourceDictionary>

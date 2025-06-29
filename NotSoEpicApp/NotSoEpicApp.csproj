@@ -141,48 +141,52 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Charts.xaml.cs">
+    <Compile Include="Pages\Charts.xaml.cs">
       <DependentUpon>Charts.xaml</DependentUpon>
     </Compile>
-    <Compile Include="LanguageManager.cs" />
-    <Compile Include="CreateAccount.xaml.cs">
+    <Compile Include="Services\LanguageManager.cs" />
+    <Compile Include="Pages\CreateAccount.xaml.cs">
       <DependentUpon>CreateAccount.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Database.cs" />
-    <Compile Include="ManageAccount.xaml.cs">
+    <Compile Include="Services\Database.cs" />
+    <Compile Include="Pages\ManageAccount.xaml.cs">
       <DependentUpon>ManageAccount.xaml</DependentUpon>
     </Compile>
-    <Compile Include="PasswordManager.cs" />
-    <Compile Include="Login.xaml.cs">
+    <Compile Include="Services\PasswordManager.cs" />
+    <Compile Include="Pages\Login.xaml.cs">
       <DependentUpon>Login.xaml</DependentUpon>
     </Compile>
-    <Compile Include="NewTransactionPage.xaml.cs">
+    <Compile Include="Pages\NewTransactionPage.xaml.cs">
       <DependentUpon>NewTransactionPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="SupervisorInfo.cs" />
-    <Compile Include="transaction.cs" />
-    <Compile Include="TransactionManager.cs" />
-    <Compile Include="Transactions.xaml.cs">
+    <Compile Include="Models\SupervisorInfo.cs" />
+    <Compile Include="Models\transaction.cs" />
+    <Compile Include="Services\TransactionManager.cs" />
+    <Compile Include="Pages\SupervisedUsers.xaml.cs">
+      <DependentUpon>SupervisedUsers.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Transactions.xaml.cs">
       <DependentUpon>Transactions.xaml</DependentUpon>
     </Compile>
-    <Compile Include="user.cs" />
-    <Page Include="Charts.xaml">
+    <Compile Include="Models\SupervisedUser.cs" />
+    <Compile Include="Models\user.cs" />
+    <Page Include="Pages\Charts.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="CreateAccount.xaml">
+    <Page Include="Pages\CreateAccount.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Login.xaml">
+    <Page Include="Pages\Login.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="ManageAccount.xaml">
+    <Page Include="Pages\ManageAccount.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="NewTransactionPage.xaml">
+    <Page Include="Pages\NewTransactionPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -208,7 +212,11 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Transactions.xaml">
+    <Page Include="Pages\SupervisedUsers.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\Transactions.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
