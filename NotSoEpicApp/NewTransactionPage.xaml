@@ -30,7 +30,7 @@
             <TextBlock Text="{DynamicResource Title}" Grid.Row="1" Grid.Column="0" VerticalAlignment="Center" Margin="0,0,10,10"/>
             <TextBox x:Name="TitleTextBox" Grid.Column="1" Margin="0,9,234,10" Grid.Row="1"/>
 
-            <TextBlock Text="{DynamicResource Amount}" Grid.Row="1" Grid.Column="1" VerticalAlignment="Center" Margin="202,0,138,0" RenderTransformOrigin="-0.013,0.737"/>
+            <TextBlock Text="{DynamicResource Amount}" Grid.Row="1" Grid.Column="1" VerticalAlignment="Center" Margin="213,0,127,0" RenderTransformOrigin="-0.013,0.737"/>
             <TextBox x:Name="AmountTextBox" Grid.Row="1" Grid.Column="1" Margin="267,12,23,10" RenderTransformOrigin="0.305,0.71"/>
 
             <TextBlock Text="{DynamicResource Type}" Grid.Row="2" Grid.Column="0" VerticalAlignment="Center" Margin="0,0,10,10"/>

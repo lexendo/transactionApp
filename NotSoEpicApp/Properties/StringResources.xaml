@@ -82,5 +82,20 @@
     <sys:String x:Key="TransactionSaveFail">Transaction not saved into database!</sys:String>
 
 
+    <!-- Supervisor Page -->
+    <sys:String x:Key="SupervisorsAdminTitle">Supervisors administration</sys:String>
+    <sys:String x:Key="ChooseUser">Choose user:</sys:String>
+    <sys:String x:Key="SetAsSupervisor">Set as supervisor</sys:String>
+    <sys:String x:Key="TransactionsTitleLabel">Transactions</sys:String>
+    <sys:String x:Key="ViewTransactions">View transactions</sys:String>
+    <sys:String x:Key="AddTransactions">Add transactions</sys:String>
+    <sys:String x:Key="SupervisorsTitleLabel">Supervisors</sys:String>
+    <sys:String x:Key="ViewSupervisors">View supervisors</sys:String>
+    <sys:String x:Key="EditSupervisors">Edit supervisors</sys:String>
+    <sys:String x:Key="ChartsTitleLabel">Charts</sys:String>
+    <sys:String x:Key="ViewCharts">View charts</sys:String>
+    <sys:String x:Key="SaveButton">Save</sys:String>
+
+
 
 </ResourceDictionary>

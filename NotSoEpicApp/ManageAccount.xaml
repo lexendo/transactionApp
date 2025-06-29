@@ -32,9 +32,9 @@
         <Button x:Name="TransactionsButton" Content="{DynamicResource TransactionsButton}" 
         Width="134" Height="38" Click="TransactionsButton_Click" HorizontalAlignment="Right" Margin="10" VerticalAlignment="Top"/>
 
-        <StackPanel Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Top" Width="400" Margin="0,50,0,0">
+        <StackPanel Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Top" Width="400" Margin="0,2,0,0">
             <!-- TextBlock for Title -->
-            <TextBlock Text="Supervisors administration" FontSize="18" FontWeight="Bold" HorizontalAlignment="Center" Margin="0,0,0,20" />
+            <TextBlock Text="{DynamicResource SupervisorsAdminTitle}" FontSize="18" FontWeight="Bold" HorizontalAlignment="Center" Margin="0,0,0,20" />
 
             <!-- Grid pre zarovnanie prvkov -->
             <Grid Height="243">
@@ -51,36 +51,36 @@
                 </Grid.RowDefinitions>
 
                 <!-- Label and ComboBox for selecting a user -->
-                <Label Grid.Row="0" Grid.Column="0" Content="Choose user:" VerticalAlignment="Center" Margin="5"/>
+                <Label Grid.Row="0" Grid.Column="0" Content="{DynamicResource ChooseUser}" VerticalAlignment="Center" Margin="5"/>
                 <ComboBox Grid.Row="0" Grid.Column="1" x:Name="UserDropdown" Width="200" SelectionChanged="UserDropdown_SelectionChanged"/>
 
                 <!-- CheckBox for Set as Supervisor -->
-                <CheckBox Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" x:Name="SetAsSupervisorCheckBox" Content="Set as supervisor" HorizontalAlignment="Left" Margin="10,10,0,10"/>
+                <CheckBox Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" x:Name="SetAsSupervisorCheckBox" Content="{DynamicResource SetAsSupervisor}" HorizontalAlignment="Left" Margin="10,10,0,10"/>
 
                 <!-- Checkboxes for Permissions -->
                 <StackPanel Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Orientation="Vertical" HorizontalAlignment="Left" Margin="0,36,0,19" Grid.RowSpan="2">
-                    <TextBlock Text="Transactions" FontWeight="Bold" Margin="10,5,0,2"/>
+                    <TextBlock Text="{DynamicResource TransactionsTitleLabel}" FontWeight="Bold" Margin="10,5,0,2"/>
                     <StackPanel Orientation="Horizontal" Margin="20,0,0,5">
-                        <CheckBox x:Name="AllowViewTransactionsCheckBox" Content="View transactions" Margin="0,0,10,0" />
-                        <CheckBox x:Name="AllowAddTransactionsCheckBox" Content="Add transactions" />
+                        <CheckBox x:Name="AllowViewTransactionsCheckBox" Content="{DynamicResource ViewTransactions}" Margin="0,0,10,0" />
+                        <CheckBox x:Name="AllowAddTransactionsCheckBox" Content="{DynamicResource AddTransactions}" />
                     </StackPanel>
 
-                    <TextBlock Text="Supervisors" FontWeight="Bold" Margin="10,10,0,2"/>
+                    <TextBlock Text="{DynamicResource SupervisorsTitleLabel}" FontWeight="Bold" Margin="10,10,0,2"/>
                     <StackPanel Orientation="Horizontal" Margin="20,0,0,5">
-                        <CheckBox x:Name="AllowViewSupervisorsCheckBox" Content="View supervisors" Margin="0,0,10,0" />
-                        <CheckBox x:Name="AllowAddSupervisorsCheckBox" Content="Edit supervisors" />
+                        <CheckBox x:Name="AllowViewSupervisorsCheckBox" Content="{DynamicResource ViewSupervisors}" Margin="0,0,10,0" />
+                        <CheckBox x:Name="AllowAddSupervisorsCheckBox" Content="{DynamicResource EditSupervisors}" />
                     </StackPanel>
 
-                    <TextBlock Text="Charts" FontWeight="Bold" Margin="10,10,0,2"/>
+                    <TextBlock Text="{DynamicResource ChartsTitleLabel}" FontWeight="Bold" Margin="10,10,0,2"/>
                     <StackPanel Orientation="Horizontal" Margin="20,0,0,0">
-                        <CheckBox x:Name="AllowViewChartsCheckBox" Content="View charts" />
+                        <CheckBox x:Name="AllowViewChartsCheckBox" Content="{DynamicResource ViewCharts}" />
                     </StackPanel>
                 </StackPanel>
 
 
 
                 <!-- Save Button -->
-                <Button Grid.Row="2" Grid.Column="1" Content="Save" Width="100" HorizontalAlignment="Left" Click="SaveButton_Click" Margin="62,76,0,0" Grid.RowSpan="2" VerticalAlignment="Top" />
+                <Button Grid.Row="2" Grid.Column="1" Content="{DynamicResource SaveButton}" Width="100" HorizontalAlignment="Left" Click="SaveButton_Click" Margin="62,76,0,0" Grid.RowSpan="2" VerticalAlignment="Top" />
             </Grid>
         </StackPanel>
     </Grid>
