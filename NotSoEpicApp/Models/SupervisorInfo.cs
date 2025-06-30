@@ -13,5 +13,6 @@ namespace NotSoEpicApp
         public bool AllowViewSupervisors { get; set; }
         public bool AllowAddTransactions { get; set; }
         public bool AllowAddSupervisors { get; set; }
+        public bool AllowControlSupervised { get; set; }
     }
 }

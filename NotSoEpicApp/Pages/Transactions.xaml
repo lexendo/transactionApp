@@ -21,26 +21,29 @@
         </Grid.RowDefinitions>
 
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="2*"/>
-            <ColumnDefinition Width="1.5*"/>
-            <ColumnDefinition Width="1.5*"/>
-            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="151*"/>
+            <ColumnDefinition Width="59*"/>
+            <ColumnDefinition Width="55*"/>
+            <ColumnDefinition Width="0*"/>
+            <ColumnDefinition Width="114*"/>
+            <ColumnDefinition Width="151*"/>
             <ColumnDefinition Width="250"/>
         </Grid.ColumnDefinitions>
 
         <!-- Column Headers -->
-        <TextBlock Text="{DynamicResource TransactionsTitle}" FontSize="14" FontWeight="Bold" Grid.Column="0" Margin="10,0,38,0"/>
-        <TextBlock Text="{DynamicResource TransactionsType}" FontSize="14" FontWeight="Bold" Grid.Column="1" Margin="34,0,89,0" Grid.ColumnSpan="2"/>
-        <TextBlock Text="{DynamicResource TransactionsAmount}" FontSize="14" FontWeight="Bold" Grid.Column="1" Margin="112,2,7,0" TextAlignment="Right" Grid.ColumnSpan="2"/>
-        <TextBlock Text="{DynamicResource TransactionsDate}" FontSize="14" FontWeight="Bold" Grid.Column="2" Margin="51,3,66,415" TextAlignment="Right" Grid.ColumnSpan="2" Grid.RowSpan="2"/>
+        <TextBlock x:Name="TransactionsTitleHeader" Text="{DynamicResource TransactionsTitle}" FontSize="14" FontWeight="Bold" Grid.Column="0" Margin="10,0,38,0"/>
+        <TextBlock x:Name="TransactionsTypeHeader" Text="{DynamicResource TransactionsType}" FontSize="14" FontWeight="Bold" Grid.Column="1" Margin="34,0,89,0" Grid.ColumnSpan="4"/>
+        <TextBlock x:Name="TransactionsAmountHeader" Text="{DynamicResource TransactionsAmount}" FontSize="14" FontWeight="Bold" Grid.Column="2" Margin="53,2,7,0" TextAlignment="Right" Grid.ColumnSpan="3"/>
+        <TextBlock x:Name="TransactionsDateHeader" Text="{DynamicResource TransactionsDate}" FontSize="14" FontWeight="Bold" Grid.Column="4" Margin="51,3,66,18" TextAlignment="Right" Grid.ColumnSpan="2"/>
 
         <!-- My Account Button in top-right corner -->
-        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,-2,10,0" Grid.Column="4">
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="110,0,0,0" Grid.Column="6">
             <Button Content="{DynamicResource MyAccountButton}" Click="MyAccount_Button_Click" Width="120" Height="35"/>
         </StackPanel>
 
         <!-- ListBox Grid moved to Row 1 -->
-        <Grid Grid.Row="1" Grid.ColumnSpan="5" Margin="0,0,0,0">
+        <Grid Grid.Row="1" Grid.ColumnSpan="7">
+
             <Grid.RowDefinitions>
                 <RowDefinition Height="8*"/>
                 <RowDefinition Height="71*"/>
@@ -53,33 +56,64 @@
                 <ColumnDefinition Width="250"/>
             </Grid.ColumnDefinitions>
 
-            <ListBox x:Name="TransactionsListBox" FontSize="14" Foreground="Black" Grid.ColumnSpan="4" SelectionChanged="TransactionsListBox_SelectionChanged" Grid.RowSpan="2" Margin="0,0,0,45">
-                <ListBox.ItemTemplate>
-                    <DataTemplate>
-                        <Border x:Name="BorderElement" Padding="5" Margin="2">
-                            <StackPanel Orientation="Horizontal">
-                                <TextBlock Text="{Binding Title}" Width="170" />
-                                <TextBlock Text="{Binding Type}" Width="90" />
-                                <TextBlock Text="{Binding Amount, StringFormat={}{0:$0.00}}" Width="100" TextAlignment="Right" />
-                                <TextBlock Text="{Binding Date, StringFormat=\{0:MM/dd/yyyy\}}" Width="130" TextAlignment="Right" />
-                            </StackPanel>
-                        </Border>
-                        <DataTemplate.Triggers>
-                            <DataTrigger Binding="{Binding IsIncome}" Value="True">
-                                <Setter TargetName="BorderElement" Property="Background" Value="LightGreen"/>
-                            </DataTrigger>
-                            <DataTrigger Binding="{Binding IsIncome}" Value="False">
-                                <Setter TargetName="BorderElement" Property="Background" Value="LightCoral"/>
-                            </DataTrigger>
-                        </DataTemplate.Triggers>
-                    </DataTemplate>
-                </ListBox.ItemTemplate>
-            </ListBox>
+            <StackPanel x:Name="TransactionsNoAccessPanel"
+                Grid.Row="0"
+                Grid.Column="0"
+                Grid.ColumnSpan="4"
+                Grid.RowSpan="2"
+                Visibility="Collapsed"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Top"
+                Margin="20">
+                <Image Source="../Resources/Lock.png"
+               Width="120"
+               Height="120"
+               Margin="0,0,0,10"/>
+                <TextBlock Text="{DynamicResource TransactionsNoAccess}"
+                   FontSize="18"
+                   FontWeight="Bold"
+                   TextAlignment="Center"
+                   Foreground="Gray"/>
+            </StackPanel>
+
+            <Grid x:Name="TransactionsListSection" Grid.ColumnSpan="4" Grid.RowSpan="2" Margin="0,0,0,45">
+                <ListBox x:Name="TransactionsListBox" FontSize="14" Foreground="Black" SelectionChanged="TransactionsListBox_SelectionChanged" Margin="0,-20,0,-10">
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <Border x:Name="BorderElement" Padding="5" Margin="2">
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Text="{Binding Title}" Width="170" />
+                                    <TextBlock Text="{Binding Type}" Width="90" />
+                                    <TextBlock Text="{Binding Amount, StringFormat={}{0:$0.00}}" Width="100" TextAlignment="Right" />
+                                    <TextBlock Text="{Binding Date, StringFormat=\{0:MM/dd/yyyy\}}" Width="130" TextAlignment="Right" />
+                                </StackPanel>
+                            </Border>
+                            <DataTemplate.Triggers>
+                                <DataTrigger Binding="{Binding IsIncome}" Value="True">
+                                    <Setter TargetName="BorderElement" Property="Background" Value="LightGreen"/>
+                                </DataTrigger>
+                                <DataTrigger Binding="{Binding IsIncome}" Value="False">
+                                    <Setter TargetName="BorderElement" Property="Background" Value="LightCoral"/>
+                                </DataTrigger>
+                            </DataTemplate.Triggers>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
+            </Grid>
 
             <StackPanel Grid.Column="4" Margin="10,10,10,10" Grid.RowSpan="2">
                 <TextBlock x:Name="DescriptionTextBlock" Text="{DynamicResource SelectTransactionDescription}" TextWrapping="Wrap" FontSize="16" Height="190" Width="204"/>
-                <Button Content="{DynamicResource AddTransactionButton}" Click="AddTransaction_Button_Click" Width="160" Height="45"/>
-                <Button Content="{DynamicResource ChartsButton}" Click="Charts_Button_Click" Width="126" Height="45"/>
+                <Button x:Name="AddTransactionButton"
+                Content="{DynamicResource AddTransactionButton}"
+                Click="AddTransaction_Button_Click"
+                Width="160"
+                Height="45"/>
+                <Button x:Name="ChartsButton"
+                    Content="{DynamicResource ChartsButton}"
+                    Click="Charts_Button_Click"
+                    Width="126"
+                    Height="45"/>
+
             </StackPanel>
         </Grid>
     </Grid>

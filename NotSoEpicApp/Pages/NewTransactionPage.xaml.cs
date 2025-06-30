@@ -46,11 +46,8 @@ namespace NotSoEpicApp
             {
                 isIncome = false;
             }
-            TransactionType selectedType;
-            if (Enum.TryParse(TransactionTypeComboBox.Text, out selectedType))
-            {
-            }
-            else
+            var selectedItem = TransactionTypeComboBox.SelectedItem as ComboBoxItem;
+            if (selectedItem == null || selectedItem.Tag == null || !Enum.TryParse(selectedItem.Tag.ToString(), out TransactionType selectedType))
             {
                 string message = Application.Current.FindResource("TransactionTypeValidation") as string;
                 MessageBox.Show(message);
@@ -66,6 +63,7 @@ namespace NotSoEpicApp
                 IsIncome = isIncome,
                 Type = selectedType
             };
+
 
 
             bool success = await Database.SaveTransactionToDatabase(transaction);

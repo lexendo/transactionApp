@@ -15,6 +15,8 @@ namespace NotSoEpicApp
     /// </summary>
     public partial class ManageAccount : Page
     {
+        private bool CanEditSupervisors = true;
+
         private void Logout_Buttton_Click(object sender, System.Windows.RoutedEventArgs e)
         {
             //logout
@@ -25,6 +27,12 @@ namespace NotSoEpicApp
         {
             InitializeComponent();
             LoadUsers();
+            InitCheckboxes();
+            ApplyPermissions();
+        }
+
+        private void InitCheckboxes()
+        {
             SetAsSupervisorCheckBox.Checked += SetAsSupervisorCheckBox_Checked;
             SetAsSupervisorCheckBox.Unchecked += SetAsSupervisorCheckBox_Unchecked;
 
@@ -34,6 +42,47 @@ namespace NotSoEpicApp
             AllowViewSupervisorsCheckBox.Checked += ViewPermissionChanged;
             AllowViewSupervisorsCheckBox.Unchecked += ViewPermissionChanged;
         }
+
+        private void ApplyPermissions()
+        {
+            var p = Login.CurrentPermissions;
+            bool hasAccess = p.AllowViewSupervisors;
+
+            SupervisorsAdminPanel.Visibility = hasAccess ? Visibility.Visible : Visibility.Collapsed;
+            SupervisorsNoAccessPanel.Visibility = hasAccess ? Visibility.Collapsed : Visibility.Visible;
+
+            CanEditSupervisors = p.AllowAddSupervisors;
+
+            if (!p.AllowAddSupervisors)
+            {
+                DisableSupervisorEditing();
+            }
+
+        }
+
+        private void DisableSupervisorEditing()
+        {
+
+            SetAsSupervisorCheckBox.IsEnabled = false;
+            AllowViewTransactionsCheckBox.IsEnabled = false;
+            AllowViewSupervisorsCheckBox.IsEnabled = false;
+            AllowViewChartsCheckBox.IsEnabled = false;
+            AllowAddTransactionsCheckBox.IsEnabled = false;
+            AllowAddSupervisorsCheckBox.IsEnabled = false;
+            
+            AllowControlSupervisedCheckBox.IsEnabled = false;
+
+            SaveButton.IsEnabled = false;
+            var saveTooltip = new ToolTip
+            {
+                Content = Application.Current.FindResource("NoSupervisorsEdit"),
+                Placement = System.Windows.Controls.Primitives.PlacementMode.Mouse
+            };
+            ToolTipService.SetToolTip(SaveButton, saveTooltip);
+            ToolTipService.SetShowOnDisabled(SaveButton, true);
+            ToolTipService.SetInitialShowDelay(SaveButton, 0);
+        }
+
 
         private async void LoadUsers()
         {
@@ -64,6 +113,7 @@ namespace NotSoEpicApp
                     AllowViewChartsCheckBox.IsChecked = supervisorInfo.AllowViewCharts;
                     AllowAddTransactionsCheckBox.IsChecked = supervisorInfo.AllowAddTransactions;
                     AllowAddSupervisorsCheckBox.IsChecked = supervisorInfo.AllowAddSupervisors;
+                    AllowControlSupervisedCheckBox.IsChecked = supervisorInfo.AllowControlSupervised;
                     EnableAccessCheckBoxes(true);
                 }
                 else
@@ -89,6 +139,9 @@ namespace NotSoEpicApp
 
         private void EnableAccessCheckBoxes(bool isEnabled)
         {
+            if (!CanEditSupervisors)
+                return;
+
             AllowViewTransactionsCheckBox.IsEnabled = isEnabled;
             AllowViewSupervisorsCheckBox.IsEnabled = isEnabled;
             AllowViewChartsCheckBox.IsEnabled = isEnabled;
@@ -106,11 +159,14 @@ namespace NotSoEpicApp
             if (isEnabled && AllowViewSupervisorsCheckBox.IsChecked == true)
             {
                 AllowAddSupervisorsCheckBox.IsEnabled = true;
+                AllowControlSupervisedCheckBox.IsEnabled = true;
             }
             else
             {
                 AllowAddSupervisorsCheckBox.IsEnabled = false;
                 AllowAddSupervisorsCheckBox.IsChecked = false;
+                AllowControlSupervisedCheckBox.IsEnabled = false;
+                AllowControlSupervisedCheckBox.IsChecked = false;
             }
         }
 
@@ -145,10 +201,11 @@ namespace NotSoEpicApp
                     bool allowViewCharts = AllowViewChartsCheckBox.IsChecked ?? false;
                     bool allowAddTransactions = AllowAddTransactionsCheckBox.IsChecked ?? false;
                     bool allowAddSupervisors = AllowAddSupervisorsCheckBox.IsChecked ?? false;
+                    bool AllowControlSupervised = AllowControlSupervisedCheckBox.IsChecked ?? false;
 
                     var supervisorInfo = await Database.GetSupervisorInfo(selectedUser);
 
-                    await Database.AddOrUpdateSupervisor(selectedUser, allowViewTransactions, allowViewSupervisors, allowViewCharts, allowAddTransactions, allowAddSupervisors);
+                    await Database.AddOrUpdateSupervisor(selectedUser, allowViewTransactions, allowViewSupervisors, allowViewCharts, allowAddTransactions, allowAddSupervisors, AllowControlSupervised);
                     if (supervisorInfo != null)
                     {
                         MessageBox.Show("Supervisor updated successfully.");

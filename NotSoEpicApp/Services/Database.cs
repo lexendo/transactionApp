@@ -297,7 +297,7 @@ namespace NotSoEpicApp
 
                     // Query to check if the current user is supervised by the selected user
                     string query = @"
-    SELECT charts_access, transaction_access, supervisors_access, transactions_add, supervisors_add
+    SELECT charts_access, transaction_access, supervisors_access, transactions_add, supervisors_add, supervised_control
     FROM public.supervisors
     WHERE supervisor_id = (SELECT id FROM public.users WHERE username = @selectedUser)
     AND user_id = @currentUserId"; 
@@ -317,7 +317,8 @@ namespace NotSoEpicApp
                                     AllowViewTransactions = reader.GetBoolean(1),
                                     AllowViewSupervisors = reader.GetBoolean(2),
                                     AllowAddTransactions = reader.GetBoolean(3),
-                                    AllowAddSupervisors = reader.GetBoolean(4)
+                                    AllowAddSupervisors = reader.GetBoolean(4),
+                                    AllowControlSupervised = reader.GetBoolean(5)
                                 };
                             }
                         }
@@ -333,7 +334,7 @@ namespace NotSoEpicApp
         }
 
         // Adds or updates supervisor with correct supervisor and user assignment
-        public static async Task<bool> AddOrUpdateSupervisor(string username, bool allowViewTransactions, bool allowViewSupervisors, bool allowViewCharts, bool allowAddTransactions, bool allowAddSupervisors)
+        public static async Task<bool> AddOrUpdateSupervisor(string username, bool allowViewTransactions, bool allowViewSupervisors, bool allowViewCharts, bool allowAddTransactions, bool allowAddSupervisors, bool AllowControlSupervised)
         {
             using (var connection = new NpgsqlConnection(connectionString))
             {
@@ -353,14 +354,14 @@ WHERE user_id = @currentUserId AND supervisor_id = (SELECT id FROM public.users 
 
                     if (count > 0)
                     {
-                        await UpdateSupervisor(username, allowViewTransactions, allowViewSupervisors, allowViewCharts, allowAddTransactions, allowAddSupervisors);
+                        await UpdateSupervisor(username, allowViewTransactions, allowViewSupervisors, allowViewCharts, allowAddTransactions, allowAddSupervisors, AllowControlSupervised);
                         return true; // was update
                     }
                     else
                     {
                         string insertQuery = @"
-        INSERT INTO public.supervisors (user_id, supervisor_id, transaction_access, supervisors_access, charts_access, transactions_add, supervisors_add)
-        VALUES (@currentUserId, (SELECT id FROM public.users WHERE username = @username), @allowViewTransactions, @allowViewSupervisors, @allowViewCharts, @transactions_add, @supervisors_add)";
+        INSERT INTO public.supervisors (user_id, supervisor_id, transaction_access, supervisors_access, charts_access, transactions_add, supervisors_add, supervised_control)
+        VALUES (@currentUserId, (SELECT id FROM public.users WHERE username = @username), @allowViewTransactions, @allowViewSupervisors, @allowViewCharts, @transactions_add, @supervisors_add, @supervised_control)";
 
                         using (var insertCommand = new NpgsqlCommand(insertQuery, connection))
                         {
@@ -371,6 +372,7 @@ WHERE user_id = @currentUserId AND supervisor_id = (SELECT id FROM public.users 
                             insertCommand.Parameters.AddWithValue("allowViewCharts", allowViewCharts);
                             insertCommand.Parameters.AddWithValue("transactions_add", allowAddTransactions);
                             insertCommand.Parameters.AddWithValue("supervisors_add", allowAddSupervisors);
+                            insertCommand.Parameters.AddWithValue("supervised_control", AllowControlSupervised);
 
                             await insertCommand.ExecuteNonQueryAsync();
                         }
@@ -380,14 +382,14 @@ WHERE user_id = @currentUserId AND supervisor_id = (SELECT id FROM public.users 
             }
         }
 
-        public static async Task UpdateSupervisor(string username, bool allowViewTransactions, bool allowViewSupervisors, bool allowViewCharts, bool allowAddTransactions, bool allowAddSupervisors)
+        public static async Task UpdateSupervisor(string username, bool allowViewTransactions, bool allowViewSupervisors, bool allowViewCharts, bool allowAddTransactions, bool allowAddSupervisors, bool AllowControlSupervised)
         {
             using (var connection = new NpgsqlConnection(connectionString))
             {
                 await connection.OpenAsync();
                 string query = @"
 UPDATE public.supervisors
-SET transaction_access = @allowViewTransactions, supervisors_access = @allowViewSupervisors, charts_access = @allowViewCharts, transactions_add = @transactions_add, supervisors_add = @supervisors_add
+SET transaction_access = @allowViewTransactions, supervisors_access = @allowViewSupervisors, charts_access = @allowViewCharts, transactions_add = @transactions_add, supervisors_add = @supervisors_add, supervised_control = @supervised_control
 WHERE user_id = @currentUserId AND supervisor_id = (SELECT id FROM public.users WHERE username = @username)";
 
                 using (var command = new NpgsqlCommand(query, connection))
@@ -399,6 +401,7 @@ WHERE user_id = @currentUserId AND supervisor_id = (SELECT id FROM public.users 
                     command.Parameters.AddWithValue("allowViewCharts", allowViewCharts);
                     command.Parameters.AddWithValue("transactions_add", allowAddTransactions);
                     command.Parameters.AddWithValue("supervisors_add", allowAddSupervisors);
+                    command.Parameters.AddWithValue("supervised_control", AllowControlSupervised);
 
                     await command.ExecuteNonQueryAsync();
                 }
@@ -436,7 +439,7 @@ WHERE user_id = @currentUserId AND supervisor_id = (SELECT id FROM public.users 
                     await connection.OpenAsync();
 
                     string query = @"
-SELECT u.username, s.charts_access, s.transaction_access, s.supervisors_access, s.transactions_add, s.supervisors_add
+SELECT u.id, u.username, s.charts_access, s.transaction_access, s.supervisors_access, s.transactions_add, s.supervisors_add, supervised_control
 FROM public.supervisors s
 JOIN public.users u ON s.user_id = u.id
 WHERE s.supervisor_id = @currentUserId
@@ -452,12 +455,14 @@ ORDER BY u.username";
                             {
                                 users.Add(new SupervisedUser
                                 {
-                                    Username = reader.GetString(0),
-                                    AllowViewCharts = reader.GetBoolean(1),
-                                    AllowViewTransactions = reader.GetBoolean(2),
-                                    AllowViewSupervisors = reader.GetBoolean(3),
-                                    AllowAddTransactions = reader.GetBoolean(4),
-                                    AllowAddSupervisors = reader.GetBoolean(5)
+                                    UserId = reader.GetInt32(0),
+                                    Username = reader.GetString(1),
+                                    AllowViewCharts = reader.GetBoolean(2),
+                                    AllowViewTransactions = reader.GetBoolean(3),
+                                    AllowViewSupervisors = reader.GetBoolean(4),
+                                    AllowAddTransactions = reader.GetBoolean(5),
+                                    AllowAddSupervisors = reader.GetBoolean(6),
+                                    AllowControlSupervised = reader.GetBoolean(7)
                                 });
                             }
                         }

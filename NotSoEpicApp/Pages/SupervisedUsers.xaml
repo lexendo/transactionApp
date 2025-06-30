@@ -60,10 +60,15 @@
                 <DataGridCheckBoxColumn Header="{DynamicResource ViewSupervisorsColumn}" Binding="{Binding AllowViewSupervisors}" ElementStyle="{StaticResource CenteredCheckBoxCellStyle}" />
                 <DataGridCheckBoxColumn Header="{DynamicResource AddTransactionsColumn}" Binding="{Binding AllowAddTransactions}" ElementStyle="{StaticResource CenteredCheckBoxCellStyle}" />
                 <DataGridCheckBoxColumn Header="{DynamicResource AddSupervisorsColumn}" Binding="{Binding AllowAddSupervisors}" ElementStyle="{StaticResource CenteredCheckBoxCellStyle}" />
+                <DataGridCheckBoxColumn Header="{DynamicResource SupervisedControlColumn}" Binding="{Binding AllowControlSupervised}" ElementStyle="{StaticResource CenteredCheckBoxCellStyle}" />
                 <DataGridTemplateColumn Header="{DynamicResource Action}">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
-                            <Button Content="{DynamicResource ManageButton}" Click="ManageUser_Click" Tag="{Binding Username}" />
+                            <Button x:Name="ManageUserButton"
+                                Content="{DynamicResource ManageButton}"
+                                Click="ManageUser_Click"
+                                Tag="{Binding}"
+                                Loaded="ManageUserButton_Loaded"/>
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>

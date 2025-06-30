@@ -22,8 +22,19 @@ namespace NotSoEpicApp
     public partial class Login : Page
     {
         public static List<Transaction> transactions;
-        public static int? CurrentUserId { get; private set; }
+        public static int? CurrentUserId { get;  set; }
         public static decimal? Current_money;
+
+        public static SupervisorInfo CurrentPermissions { get; set; } = new SupervisorInfo
+        {
+            AllowViewCharts = true,
+            AllowViewTransactions = true,
+            AllowViewSupervisors = true,
+            AllowAddTransactions = true,
+            AllowAddSupervisors = true,
+            AllowControlSupervised = true
+        };
+
         public Login()
         {
             InitializeComponent();
@@ -34,6 +45,16 @@ namespace NotSoEpicApp
 
         private async void Login_Button_Click(object sender, RoutedEventArgs e)
         {
+            CurrentPermissions = new SupervisorInfo
+            {
+                AllowViewCharts = true,
+                AllowViewTransactions = true,
+                AllowViewSupervisors = true,
+                AllowAddTransactions = true,
+                AllowAddSupervisors = true,
+                AllowControlSupervised = true
+            };
+
             string username = UsernameTextBox.Text;
             string password = PasswordBox.Password;
 

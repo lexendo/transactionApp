@@ -39,14 +39,29 @@ namespace NotSoEpicApp
                 _allUsers.Where(u => u.Username.ToLower().Contains(query)));
         }
 
-        private void ManageUser_Click(object sender, System.Windows.RoutedEventArgs e)
+        private async void ManageUser_Click(object sender, RoutedEventArgs e)
         {
-            if (sender is Button btn && btn.Tag is string username)
+            if (sender is Button btn && btn.Tag is SupervisedUser user)
             {
-                MessageBox.Show($"Spravovanie používateľa: {username}");
-                // Môžeš tu otvoriť detail používateľa alebo navigovať na inú stránku
+                Login.CurrentUserId = user.UserId;
+                Login.Current_money = await Database.GetUserCurrentMoney();
+                Login.transactions = await Database.LoadTransactionsFromDatabase(user.UserId);
+
+                Login.CurrentPermissions = new SupervisorInfo
+                {
+                    AllowViewTransactions = user.AllowViewTransactions,
+                    AllowViewCharts = user.AllowViewCharts,
+                    AllowViewSupervisors = user.AllowViewSupervisors,
+                    AllowAddTransactions = user.AllowAddTransactions,
+                    AllowAddSupervisors = user.AllowAddSupervisors,
+                    AllowControlSupervised = user.AllowControlSupervised
+
+                };
+
+                NavigationService?.Navigate(new Transactions());
             }
         }
+
 
         public event PropertyChangedEventHandler PropertyChanged;
         protected void OnPropertyChanged(string name) =>
@@ -61,5 +76,30 @@ namespace NotSoEpicApp
         {
 
         }
+
+        private void ManageUserButton_Loaded(object sender, RoutedEventArgs e)
+        {
+            if (sender is Button btn)
+            {
+                bool canControl = Login.CurrentPermissions?.AllowControlSupervised == true;
+
+                btn.IsEnabled = canControl;
+
+                if (!canControl)
+                {
+                    var tooltip = new ToolTip
+                    {
+                        Content = Application.Current.FindResource("NoSupervisedControl"),
+                        Placement = System.Windows.Controls.Primitives.PlacementMode.Mouse
+                    };
+                    ToolTipService.SetToolTip(btn, tooltip);
+                    ToolTipService.SetShowOnDisabled(btn, true);
+                    ToolTipService.SetInitialShowDelay(btn, 0);
+                }
+            }
+        }
+
+
+
     }
 }

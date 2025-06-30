@@ -60,6 +60,9 @@
 	<sys:String x:Key="SelectTransactionDescription">Select a transaction to see the description.</sys:String>
 	<sys:String x:Key="AddTransactionButton">Add Transaction</sys:String>
     <sys:String x:Key="ChartsButton">Charts</sys:String>
+    <sys:String x:Key="ChartsNotAllowed">No permission to view charts.</sys:String>
+    <sys:String x:Key="AddTransactionNotAllowed">No permission to add transactions.</sys:String>
+    <sys:String x:Key="TransactionsNoAccess">You don't have permission to view transactions.</sys:String>
 
 
 
@@ -97,6 +100,9 @@
     <sys:String x:Key="LogoutButton">Logout</sys:String>
     <sys:String x:Key="SelectLanguage">Select Language: </sys:String>
     <sys:String x:Key="SupervisedUsersButton">📋 Supervised Users</sys:String>
+    <sys:String x:Key="NoSupervisorsAccess">You do not have permission to view supervisor management.</sys:String>
+    <sys:String x:Key="NoSupervisorsEdit">You don't have permission to edit supervisors.</sys:String>
+    <sys:String x:Key="ControlSupervised">Control supervised</sys:String>
 
     <!-- Supervising Page -->
     <sys:String x:Key="UsernameColumn">User</sys:String>
@@ -105,9 +111,12 @@
     <sys:String x:Key="ViewSupervisorsColumn">View Supervisors</sys:String>
     <sys:String x:Key="AddTransactionsColumn">Add Transactions</sys:String>
     <sys:String x:Key="AddSupervisorsColumn">Add Supervisors</sys:String>
+    <sys:String x:Key="SupervisedControlColumn">Access to supervised</sys:String>
     <sys:String x:Key="ManageButton">Manage</sys:String>
     <sys:String x:Key="Action">Action</sys:String>
     <sys:String x:Key="Search">Search:</sys:String>
+    <sys:String x:Key="NoSupervisedControl">No access to supervised users accounts.</sys:String>
+
 
 
 

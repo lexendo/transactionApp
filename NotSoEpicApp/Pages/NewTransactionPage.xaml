@@ -35,17 +35,17 @@
 
             <TextBlock Text="{DynamicResource Type}" Grid.Row="2" Grid.Column="0" VerticalAlignment="Center" Margin="0,0,10,10"/>
             <StackPanel Grid.Row="2" Grid.Column="1" Orientation="Horizontal" Margin="0,9,0,10">
-                <ComboBox x:Name="TransactionTypeComboBox" Width="150">
-                    <ComboBoxItem Content="{DynamicResource Entertainment}"/>
-                    <ComboBoxItem Content="{DynamicResource Healthcare}"/>
-                    <ComboBoxItem Content="{DynamicResource Insurance}"/>
-                    <ComboBoxItem Content="{DynamicResource Groceries}"/>
-                    <ComboBoxItem Content="{DynamicResource Gift}"/>
-                    <ComboBoxItem Content="{DynamicResource Tax}"/>
-                    <ComboBoxItem Content="{DynamicResource Rent}"/>
-                    <ComboBoxItem Content="{DynamicResource Shopping}"/>
-                    <ComboBoxItem Content="{DynamicResource Other}" IsSelected="true"/>
-                </ComboBox>
+<ComboBox x:Name="TransactionTypeComboBox" Width="150">
+    <ComboBoxItem Content="{DynamicResource Entertainment}" Tag="Entertainment"/>
+    <ComboBoxItem Content="{DynamicResource Healthcare}" Tag="Healthcare"/>
+    <ComboBoxItem Content="{DynamicResource Insurance}" Tag="Insurance"/>
+    <ComboBoxItem Content="{DynamicResource Groceries}" Tag="Groceries"/>
+    <ComboBoxItem Content="{DynamicResource Gift}" Tag="Gift"/>
+    <ComboBoxItem Content="{DynamicResource Tax}" Tag="Tax"/>
+    <ComboBoxItem Content="{DynamicResource Rent}" Tag="Rent"/>
+    <ComboBoxItem Content="{DynamicResource Shopping}" Tag="Shopping"/>
+    <ComboBoxItem Content="{DynamicResource Other}" Tag="Other" IsSelected="True"/>
+</ComboBox>
 
                 <StackPanel Orientation="Horizontal" Margin="20,0,0,0">
                     <RadioButton x:Name="IncomeRadioButton" Content="{DynamicResource Income}" GroupName="TransactionType" Margin="0,0,10,0" IsChecked="true"/>

@@ -40,7 +40,12 @@
 
         <Button Content="{DynamicResource LogoutButton}" Click="Logout_Buttton_Click" Width="110" Height="38" Margin="20" HorizontalAlignment="Left"/>
 
-        <StackPanel Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Top" Width="400" Margin="0,2,0,0">
+        <StackPanel x:Name="SupervisorsNoAccessPanel" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" Visibility="Collapsed">
+            <Image Source="../Resources/lock.png" Width="64" Height="64" HorizontalAlignment="Center" Margin="0,0,0,10"/>
+            <TextBlock Text="{DynamicResource NoSupervisorsAccess}" FontWeight="Bold" FontSize="18" TextAlignment="Center" Foreground="Gray"/>
+        </StackPanel>
+        
+        <StackPanel x:Name="SupervisorsAdminPanel" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Top" Width="400" Margin="0,2,0,0">
             <TextBlock Text="{DynamicResource SupervisorsAdminTitle}" FontSize="18" FontWeight="Bold" HorizontalAlignment="Center" Margin="0,0,0,20" />
 
             <Grid Height="274" Width="410">
@@ -65,6 +70,7 @@
 
                 <!-- Checkboxes for Permissions -->
                 <StackPanel Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Orientation="Vertical" HorizontalAlignment="Left" Margin="-11,45,0,10" Grid.RowSpan="2">
+                    
                     <TextBlock Text="{DynamicResource TransactionsTitleLabel}" FontWeight="Bold" Margin="10,5,0,2"/>
                     <StackPanel Orientation="Horizontal" Margin="20,0,0,5">
                         <CheckBox x:Name="AllowViewTransactionsCheckBox" Content="{DynamicResource ViewTransactions}" Margin="0,0,10,0" />
@@ -75,6 +81,7 @@
                     <StackPanel Orientation="Horizontal" Margin="20,0,0,5">
                         <CheckBox x:Name="AllowViewSupervisorsCheckBox" Content="{DynamicResource ViewSupervisors}" Margin="0,0,10,0" />
                         <CheckBox x:Name="AllowAddSupervisorsCheckBox" Content="{DynamicResource EditSupervisors}" />
+                        <CheckBox x:Name="AllowControlSupervisedCheckBox" Content="{DynamicResource ControlSupervised}" />
                     </StackPanel>
 
                     <TextBlock Text="{DynamicResource ChartsTitleLabel}" FontWeight="Bold" Margin="10,10,0,2"/>
@@ -85,7 +92,7 @@
 
 
                 <StackPanel Orientation="Horizontal" Grid.Row="2" Grid.ColumnSpan="2" Margin="28,150,-21,0" >
-                    <Button Grid.Row="2" Grid.Column="1" Content="{DynamicResource SaveButton}" Width="100" HorizontalAlignment="Center" Click="SaveButton_Click" Margin="10" />
+                    <Button x:Name="SaveButton" Grid.Row="2" Grid.Column="1" Content="{DynamicResource SaveButton}" Width="100" HorizontalAlignment="Center" Click="SaveButton_Click" Margin="10" />
                     <Button Grid.Row="2"
         Grid.Column="2"
         Content="{DynamicResource SupervisedUsersButton}"

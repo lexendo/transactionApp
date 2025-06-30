@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 
@@ -10,13 +11,64 @@ namespace NotSoEpicApp
         {
             InitializeComponent();
             LoadAndDisplayTransactions();
+            ApplyPermissions();
         }
+
+        private void ApplyPermissions()
+        {
+            var p = Login.CurrentPermissions;
+
+            ChartsButton.IsEnabled = p.AllowViewCharts;
+
+            if (!p.AllowViewCharts)
+            {
+                SetDisabledButtonTooltip(ChartsButton, Application.Current.FindResource("ChartsNotAllowed"));
+            }
+
+            if (!p.AllowViewTransactions)
+            {
+                TransactionsListSection.Visibility = Visibility.Collapsed;
+                TransactionsTitleHeader.Visibility = Visibility.Collapsed;
+                TransactionsTypeHeader.Visibility = Visibility.Collapsed;
+                TransactionsAmountHeader.Visibility = Visibility.Collapsed;
+                TransactionsDateHeader.Visibility = Visibility.Collapsed;
+                DescriptionTextBlock.Visibility = Visibility.Hidden;
+
+                TransactionsNoAccessPanel.Visibility = Visibility.Visible;
+            }
+            else
+            {
+                TransactionsListSection.Visibility = Visibility.Visible;
+                DescriptionTextBlock.Visibility = Visibility.Visible;
+
+                TransactionsNoAccessPanel.Visibility = Visibility.Collapsed;
+            }
+
+            AddTransactionButton.IsEnabled = p.AllowAddTransactions;
+            if (!p.AllowAddTransactions)
+            {
+                SetDisabledButtonTooltip(AddTransactionButton, Application.Current.FindResource("AddTransactionNotAllowed"));
+            }
+
+        }
+
+        private void SetDisabledButtonTooltip(Button button, object tooltipContent)
+        {
+            var tooltip = new ToolTip
+            {
+                Content = tooltipContent,
+                Placement = System.Windows.Controls.Primitives.PlacementMode.Mouse
+            };
+            ToolTipService.SetToolTip(button, tooltip);
+            ToolTipService.SetShowOnDisabled(button, true);
+            ToolTipService.SetInitialShowDelay(button, 0);
+        }
+
 
         private async void LoadAndDisplayTransactions()
         {
-            //List<Transaction> transactions = TransactionManager.LoadTransactionsFromFiles();
 
-            TransactionsListBox.ItemsSource = Login.transactions;
+            TransactionsListBox.ItemsSource = Login.transactions.OrderByDescending(t => t.Date).ToList();
         }
 
         private void Charts_Button_Click(object sender, System.Windows.RoutedEventArgs e)

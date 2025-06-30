@@ -60,6 +60,9 @@
 	<sys:String x:Key="SelectTransactionDescription">Vyberte transakciu pre zobrazenie popisu.</sys:String>
 	<sys:String x:Key="AddTransactionButton">Pridať transakciu</sys:String>
     <sys:String x:Key="ChartsButton">Grafy</sys:String>
+    <sys:String x:Key="ChartsNotAllowed">Zobrazenie grafov nie je povolené.</sys:String>
+    <sys:String x:Key="AddTransactionNotAllowed">Nemáš oprávnenie na pridávanie transakcií.</sys:String>
+    <sys:String x:Key="TransactionsNoAccess">Nemáte oprávnenie na zobrazenie transakcií.</sys:String>
 
     <!-- MessageBoxes -->
 	<sys:String x:Key="UsernameValidation">Používateľské meno musí mať aspoň 5 znakov.</sys:String>
@@ -94,16 +97,22 @@
     <sys:String x:Key="LogoutButton">Odhlásiť</sys:String>
     <sys:String x:Key="SelectLanguage">Vyber si jazyk:</sys:String>
     <sys:String x:Key="SupervisedUsersButton">📋 Spravovaní Uživatelia</sys:String>
+    <sys:String x:Key="NoSupervisorsAccess">Nemáte oprávnenie na zobrazenie správy supervízorov.</sys:String>
+    <sys:String x:Key="NoSupervisorsEdit">Nemáte oprávnenie upravovať supervisorov.</sys:String>
+    <sys:String x:Key="ControlSupervised">Kontrolovať zverencov</sys:String>
 
     <!-- Supervising Page -->
     <sys:String x:Key="UsernameColumn">Používateľ</sys:String>
     <sys:String x:Key="ViewTransactionsColumn">Zobraziť transakcie</sys:String>
     <sys:String x:Key="ViewChartsColumn">Zobraziť grafy</sys:String>
-    <sys:String x:Key="ViewSupervisorsColumn">Zobraziť dohľady</sys:String>
+    <sys:String x:Key="ViewSupervisorsColumn">Zobraziť supervízorov</sys:String>
     <sys:String x:Key="AddTransactionsColumn">Pridať transakcie</sys:String>
-    <sys:String x:Key="AddSupervisorsColumn">Pridať dohľady</sys:String>
-    <sys:String x:Key="ManageButton">Spravovať</sys:String>
+    <sys:String x:Key="AddSupervisorsColumn">Pridať grafy</sys:String>
+    <sys:String x:Key="SupervisedControlColumn">Prístup k dohliadaným</sys:String>
+    <sys:String x:Key="ManageButton">Spravovať </sys:String>
     <sys:String x:Key="Action">Akcia</sys:String>
     <sys:String x:Key="Search">Vyhľadávanie:</sys:String>
+    <sys:String x:Key="NoSupervisedControl">Nemáte prístup k účtom dohliadaných.</sys:String>
+
 
 </ResourceDictionary>

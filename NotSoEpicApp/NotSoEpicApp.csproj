@@ -271,4 +271,7 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Lock.png" />
+  </ItemGroup>
 </Project>
