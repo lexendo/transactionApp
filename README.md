@@ -8,6 +8,13 @@ This application was originally created years ago as a personal learning project
 
 ---
 
+## 🎥 Demo Video
+
+A short video demonstration of the app in action is available here:  
+[Video demonstration](https://github.com/lexendo/transactionApp/blob/main/TransactionApp.mp4)
+
+---
+
 ## Tech Stack
 
 - **WPF (.NET)**
@@ -56,14 +63,6 @@ This application was originally created years ago as a personal learning project
   ![obrázok](https://github.com/user-attachments/assets/0c1fcba2-e801-4917-9996-55a348893628)
 
 
-
-## 🎥 Demo Video
-
-A short video demonstration of the app in action is available here:  
-PLACEHOLDER
-
-
-
 ------
 ---
 
@@ -77,6 +76,13 @@ PLACEHOLDER
 Táto aplikácia vznikla pred rokmi ako osobný projekt s cieľom naučiť sa pracovať s databázami, najmä vykonávať **CRUD operácie** a získať základnú skúsenosť s jazykom **C#** a desktopovým vývojom cez **WPF**.
 
 ---
+## 🎥 Ukážkové video
+
+Krátke video ukazujúce funkcie aplikácie si môžete pozrieť tu:  
+[Video aplikácie](https://github.com/lexendo/transactionApp/blob/main/TransactionApp.mp4)
+
+---
+
 
 ## Použité technológie
 
@@ -121,11 +127,6 @@ Táto aplikácia vznikla pred rokmi ako osobný projekt s cieľom naučiť sa pr
   - Možnosti zahŕňajú: zobrazenie/pridanie transakcií, zobrazenie grafov, správa dohliadaných účtov, prideľovanie ďalších supervízorov atď.
 
 ---
-
-## 🎥 Ukážkové video
-
-Krátke video ukazujúce funkcie aplikácie si môžete pozrieť tu:  
-ODKAZ NA VIDEO BUDE DOPLNENÝ
 
 
 
